@@ -1,4 +1,4 @@
-﻿#include "settings.h"
+#include "settings.h"
 
 class Counter {
     int actual_value = 0;
@@ -7,40 +7,40 @@ class Counter {
     unsigned int step = 1;
 
 public:
-    void SetAcualV(int av) {
-        if (av < min_value || av > max_value) {
+    void SetAcualV(int actual_value) {
+        if (actual_value < min_value || actual_value > max_value) {
             throw "ERROR!";
         }
-        actual_value = av;
+        this->actual_value = actual_value;
     }
-    int GetActualV() {
+    int GetActualV() const {
         return actual_value;
     }
-    void SetMaxV(int mv) {
-        if (mv < min_value) {
+    void SetMaxV(int max_value) {
+        if (max_value < min_value) {
             throw "ERROR!";
         }
-        max_value = mv;
+        this->max_value = max_value;
     }
-    int GetMaxV() {
+    int GetMaxV() const {
         return max_value;
     }
-    void SetMinV(int mv) {
-        if (mv > max_value) {
+    void SetMinV(int min_value) {
+        if (min_value > max_value) {
             throw "ERROR!";
         }
-        min_value = mv;
-        if (actual_value < min_value) {
-            actual_value = min_value;
+        this->min_value = min_value;
+        if (actual_value < this->min_value) {
+            actual_value = this->min_value;
         }
     }
-    int GetMinV() {
+    int GetMinV() const {
         return min_value;
     }
-    void SetStep(int s) {
-        step = s;
+    void SetStep(int step) {
+        this->step = step;
     }
-    int GetStep() {
+    int GetStep() const {
         return step;
     }
     void VPlusStep() {
